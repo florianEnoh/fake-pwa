@@ -33,6 +33,11 @@ const {articles} = {
 window.addEventListener('load', async () => {
   main.innerHTML = await _getLatestNews()
 })
+if(navigator.serviceWorker || 'serviceWorker' in navigator){
+  navigator.serviceWorker
+  .register('sw.js')
+  .catch(console.log)
+}
 
 function _getLatestNews() {
   return _fetchLatestArticles()
